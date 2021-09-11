@@ -9,13 +9,13 @@ display(r)
 
 
 def user_input():
+    global m
     m = input("player1 choose 'x' or '0': ")
     while m != 'x' and m != '0':
         m = input("player1 choose 'x' or '0': ")
     return m
 
 
-# user input position
 def user_position():
     p = int(input('choose a position from (1,9): '))
     while p not in range(0, 10) or r[p] != ' ':
@@ -50,7 +50,8 @@ rst = True
 while rst:
     game(r)
     if win_check(r) is True:
-        print("game over : player wins")
+        global m
+        print(f"game over : {m} wins")
         rst = False
     elif tie_check(r) == True:
         print("its a tie")
